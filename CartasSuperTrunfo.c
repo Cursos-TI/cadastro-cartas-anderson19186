@@ -1,4 +1,6 @@
 #include <stdio.h>
+# include <stdlib.h>
+#include <time.h>
 
 int main(){
 
@@ -9,14 +11,15 @@ int main(){
   unsigned long int população , população1;
   float Área , Área1;
   float PIB , PIB1;
-  int pontosTuristicos , pontosTuristicos1;
+  int pontosTuristicos , pontosTuristicos1,atributo;
   float DensidadePopulacional , DensidadePopulacional1;
   float PibPerCapita , PibPerCapita1;
   float SuperPoder , SuperPoder1;    
  int carta1 , carta2;
+  
                       /*  inicio */
 
-      printf(" Super Trufo - Países:\n");
+      printf("#### Super Trufo - Países:####\n");
 
       printf("Vamos cadastrar as cartas jogador:\n");
 
@@ -24,6 +27,7 @@ int main(){
 
       printf("Escolha uma letra de 'A' a 'H' para o Estado:\n");
       scanf(" %c", &Estado);
+      
 
       printf("Digite o numero da carta:\n");
       scanf(" %s", &numero);
@@ -43,6 +47,7 @@ int main(){
       printf("Digite a quantidade  de pontos turisticos:\n");
       scanf("%d" , &pontosTuristicos);
 
+                        
                         //comentario do game;
 
       printf("Parabéns jogador.\n");
@@ -154,44 +159,94 @@ int main(){
 
       //comparação entre as cartas cadastradas
 
-      printf("Comparação entre as cartas cadastradas:\n");
+      printf("####Comparação entre as cartas cadastradas:####\n");
 
-      
-      if (população > população1){
+      printf( "Escolha os Atributos \n");
+      printf("1. população \n");
+      printf("2. Área \n"); 
+      printf("3. PIB \n"); 
+      printf("4. Número de pontos turisticos \n"); 
+      printf("5. Densidade demografica\n");
+      scanf("%d" ,&atributo);
+
+      switch (atributo)
+            
+      { 
+     
+        case 1:
+            printf("Cidade %s vs %s \n",cidade,cidade1);
+            printf("atributo população selecionado \n"); 
+            if (população > população1){
         printf("Carta 1 venceu %s (população: %lu habitantes)\n", cidade, população);
-      } else {
-        printf("Carta 2 venceu %s (população: %lu habitantes)\n", cidade1, população1);
-      }
-      if (Área > Área1){
+        printf("Carta 2 perdeu %s (população:%lu habitantes)\n", cidade1,população1);
+      }else if(população==população1){
+            printf("Empatou");}
+       else {
+        printf("Carta 2 venceu %s (população: %lu habitantes)\n", cidade1, população1);}
+        printf("Carta 1 perdeu %s (população: %lu habitantes)\n", cidade, população);     
+        break;
+        case 2:
+        printf("Cidade %s vs %s \n",cidade,cidade1);
+        printf("Atributo area Selecionado: \n");
+        if (Área > Área1){
         printf("Carta 1 venceu %s (área: %.2f km²)\n", cidade, Área);
-      } else {
-        printf("Carta 2 venceu %s ( %.2f km²)\n", cidade1, Área1);
-      }
-      
-      if(PIB > PIB1){
-        printf("Carta 1 venceu %s (PIB: %.2f bilhões de reais)\n", cidade, PIB);
-      } else {
-        printf("Carta 2 venceu %s (PIB: %.2f bilhões de reais)\n", cidade1, PIB1);
+        printf("Carta 2 perdeu %s (área: %.2f km²)\n", cidade1, Área1);
+      } else if(Área==Área1){
+            printf("empatou");
       } 
-      if(pontosTuristicos > pontosTuristicos1){
+      else {
+        printf("Carta 2 venceu %s ( %.2f km²)\n", cidade1, Área1);
+        printf("Carta 1 perdeu %s (área: %.2f km²)\n", cidade, Área);
+      }
+
+        break;
+        case  3:
+        printf("Cidade %s vs %s \n",cidade,cidade1);
+        printf("Atributo  PIB selecionada \n");
+         if(PIB > PIB1){
+        printf("Carta 1 venceu %s (PIB: %.2f bilhões de reais)\n", cidade, PIB);
+        printf("Carta 2 perdeu %s (PIB: %.2f bilhões de reais)\n", cidade1, PIB1);
+      }  else if(PIB==PIB1){
+            printf("empatou");}
+      else {
+        printf("Carta 2 venceu %s (PIB: %.2f bilhões de reais)\n", cidade1, PIB1);
+        printf("Carta 1 perdeu %s (PIB: %.2f bilhões de reais)\n", cidade, PIB);
+      } break;
+        case 4 :
+        printf("Cidade %s vs %s \n",cidade,cidade1);
+        printf(" Atributo pontosTuristicos selecionado \n");
+        if(pontosTuristicos > pontosTuristicos1){
         printf("Carta 1 venceu %s (pontos turísticos: %d)\n", cidade, pontosTuristicos);
-      } else {
-        printf("Carta 2 venceu %s (pontos turísticos: %d)\n", cidade1, pontosTuristicos1); 
-      }
-      if(PibPerCapita > PibPerCapita1){
-        printf("Carta 1 venceu %s  (PIB per capita: %.2f reais)\n", cidade, PibPerCapita);
-      } else {
-        printf("Carta 2 venceu %s (PIB per capita: %.2f reais)\n", cidade1, PibPerCapita1);  
-      }
-      if(SuperPoder > SuperPoder1){
-        printf("Carta 1 venceu %s (super poder: %.2f)\n", cidade, SuperPoder);
-      } else {
-        printf("Carta 2 venceu %s (super poder: %.2f)\n", cidade1, SuperPoder1);
-      }
+        printf("Carta 2 perdeu %s (pontos turísticos: %d)\n", cidade1, pontosTuristicos1); 
       
-      if(DensidadePopulacional < DensidadePopulacional1){
+      }  else if(pontosTuristicos==pontosTuristicos1){
+            printf("empatou");}
+      else {
+        printf("Carta 2 venceu %s (pontos turísticos: %d)\n", cidade1, pontosTuristicos1);
+        printf("Carta 1 perdeu %s (pontos turísticos: %d)\n", cidade, pontosTuristicos); 
+      }
+      break;
+      case 5:
+         printf("Cidade %s vs %s \n",cidade,cidade1);
+         printf("Densidade Populacional \n");
+         if(DensidadePopulacional < DensidadePopulacional1){
         printf("Carta 1 venceu %s (densidade populacional: %.2f hab/km²)\n", cidade, DensidadePopulacional);
-      } else {
+        printf("Carta 2 perdeu %s (densidade populacional: %.2f hab/km²)\n", cidade1, DensidadePopulacional1);
+      } else if(DensidadePopulacional==DensidadePopulacional1){
+            printf("empatou");}
+       else {
         printf("Carta 2 venceu %s (densidade populacional: %.2f hab/km²)\n", cidade1, DensidadePopulacional1);
+         printf("Carta 1 perdeu %s (densidade populacional: %.2f hab/km²)\n", cidade, DensidadePopulacional);
       }
+       break;
+      default:
+      printf("Opção invalida \n");
+ 
       
+ 
+    }
+}
+      
+                
+      
+     
