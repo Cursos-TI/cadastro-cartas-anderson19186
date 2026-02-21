@@ -261,10 +261,14 @@ int main(){
 
          soma_carta1 = valor1_carta1 +valor2_carta1;
          soma_carta2 = valor1_carta2 +valor2_carta2;
-         printf(" Cidade  de:%s\n" , cidade);
+         printf("Cidade  de:%s\n" , cidade);
+         printf("%.2f \n",valor1_carta1);
+         printf("%.2f \n",valor2_carta1);
          printf("Soma atributos: %.2f  \n",soma_carta1);
-         printf(" Cidade de: %s\n",cidade1);
-         printf("Soma atributos %.2f  \n",soma_carta2);
+         printf("Cidade de: %s\n",cidade1);
+         printf("%.2f \n",valor1_carta2);
+         printf("%.2f \n",valor2_carta2);
+         printf("Soma atributos %.2f \n",soma_carta2);
          
           //Resultado final.
 
